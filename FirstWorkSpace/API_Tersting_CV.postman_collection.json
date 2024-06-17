@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "c6c3c6fe-ae45-4ec4-9f07-6e6ac30cdecc",
+		"name": "API_Tersting_CV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "GET_Method_Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.globals.set(\"vadapalani_new_variable\",\"https://reqres.in\");\r",
+							"pm.collectionVariables.set(\"Collection_variable_vadapalani\",\"api/users\");\r",
+							"pm.variables.set(\"value\",\"1\")\r",
+							"pm.variables.set(\"validation_message\",\"To keep ReqRes free, contributions towards server costs are appreciated!\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var responsevariableName =pm.response.json();\r",
+							"\r",
+							"pm.test(\"validate the status code\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.test(\"description\",function(){\r",
+							"    pm.response.to.have.status(204)\r",
+							"})\r",
+							" pm.test(\"validate the status codes\",()=>{\r",
+							"     pm.expect(pm.response.code).to.be.oneOf([200,201])\r",
+							" })\r",
+							"\r",
+							" pm.test(\"validate the headers\",()=>{\r",
+							"    pm.response.to.have.header('Content-Length');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the content length value\",()=>{\r",
+							"pm.expect(pm.response.headers.get('Content-Length')).to.eql(400)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"cookies validation\",function(){\r",
+							"    pm.response.to.have.cookies('testing');\r",
+							"})\r",
+							"pm.test(\"cookies testing value validation\",function(){\r",
+							"    pm.expect(pm.response.cookies.get('testing')).to.eql(\"API-Testing\")\r",
+							"})\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.above(100)\r",
+							"})\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.globals.set(\"values_from_response\",responsevariableName.total)\r",
+							"\r",
+							"pm.test(\"validate the responseBody content\",function(){\r",
+							"   \r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the responseBody value\",function(){\r",
+							"    pm.expect(responsevariableName.data).to.be.an(\"array\");\r",
+							"    pm.expect(responsevariableName.total_pages).to.be.a(\"number\")\r",
+							"    pm.expect(responsevariableName.data[1].first_name).to.eql(\"Janet\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"testing  body\",function() {\r",
+							"\r",
+							"     pm.expect(responsevariableName.per_page).to.eql(6);\r",
+							"    pm.expect(responsevariableName.data[3].last_name).to.eql(\"Holt\");\r",
+							"    pm.expect(responsevariableName.support.url).to.eql(\"https://reqres.in/#support-heading\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validation message\",()=>{\r",
+							"    pm.expect(responsevariableName.support.text).to.eql(\"To keep ReqRes free, contributions towards server costs are appreciated!\");\r",
+							"})\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{vadapalani_new_variable}}/{{Collection_variable_vadapalani}}?page={{value}}",
+					"host": [
+						"{{vadapalani_new_variable}}"
+					],
+					"path": [
+						"{{Collection_variable_vadapalani}}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{value}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_Method_Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Thivakar\",\r\n    \"job\": \"Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/{{QA_Env}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{QA_Env}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://images-eu.ssl-images-amazon.com/images/I/016V4y703HL.js?xcp",
+					"protocol": "https",
+					"host": [
+						"images-eu",
+						"ssl-images-amazon",
+						"com"
+					],
+					"path": [
+						"images",
+						"I",
+						"016V4y703HL.js"
+					],
+					"query": [
+						{
+							"key": "xcp",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Demo_QA_Element",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://demoqa.com/favicon.ico",
+					"protocol": "https",
+					"host": [
+						"demoqa",
+						"com"
+					],
+					"path": [
+						"favicon.ico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Go_REST_Get_Method",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d6765d9925769af8357f7c13525aea56ce4f612a176e56d078f8b9e9f3e2a571",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/comments",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d6765d9925769af8357f7c13525aea56ce4f612a176e56d078f8b9e9f3e2a571",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/2139074",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"2139074"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Collection_variable_vadapalani",
+			"value": ""
+		}
+	]
+}

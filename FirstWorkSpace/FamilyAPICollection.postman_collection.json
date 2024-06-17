@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "51439e49-196d-4225-b17e-0285c39888d9",
+		"name": "FamilyAPICollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "GetAllFamilyRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"test Status Code Test\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test status another type\", ()=>{\r",
+							" pm.expect(pm.response.code).to.be.oneOf([200,201])\r",
+							"});\r",
+							"\r",
+							"tests[\"vaildate\"]=responseCode.code==200;\r",
+							"\r",
+							"    pm.test(\"Content-Length validation\",()=>{\r",
+							"        pm.response.to.have.header('Content-Length');\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"validate the Content-Length value\",function(){\r",
+							"        pm.expect(pm.response.headers.get('Content-Length')).to.eql('773');\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"validate the responseTime\", function(){\r",
+							"        pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"    });\r",
+							"\r",
+							"    var varReferenceName = pm.response.json();\r",
+							"    pm.test(\"validate the responseBody value\",function(){\r",
+							"        pm.expect(varReferenceName[3].courses).to.be.an(\"array\");\r",
+							"    });\r",
+							"\r",
+							"    pm.test(\"validate the location field\",()=>{\r",
+							"        pm.expect(varReferenceName[4].location).to.eql(\"World\");\r",
+							"        pm.expect(varReferenceName[0].phone).to.eql(\"123654789\");\r",
+							"        pm.expect(varReferenceName[2].courses[1]).to.eql(\"Devops\");\r",
+							"    });\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStaticFamilyRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var varReferenceName =pm.response.json();\r",
+							"pm.test(\"validate the responseBody keyTypes\", () => {\r",
+							"pm.expect(varReferenceName).to.be.an(\"object\");\r",
+							"pm.expect(varReferenceName.courses).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Arrayvalues\",()=>{\r",
+							"    pm.expect(varReferenceName.courses).to.include(\"MSP\");\r",
+							"    //pm.expect(varReferenceName.courses).to.have.members([\"MSP\",\"GTN\"]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/{{new_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"{{new_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddNewFamilyRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"validate the responseCode\"]= responseCode.code=='201';\r",
+							"var data = JSON.parse(responseBody);\r",
+							"console.log(data.name);\r",
+							"\r",
+							"pm.test(\"validate the ressponse body name\",()=>{\r",
+							"    pm.expect(data.name).to.eql('MalarKodi');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\":\"MalarKodi\",\r\n\"location\":\"WorldPrincess\",\r\n\"phone\":\"02051975\",\r\n\"courses\":[\r\n\"Study\",\r\n\"Life\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateStaticFamilyRequest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 2,\r\n        \"name\": \"DuraiKannan\",\r\n        \"location\": \"Trichy\",\r\n        \"phone\": \"55998866\",\r\n        \"courses\": [\r\n            \"MSP\",\r\n            \"GTN\"\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteFAmilyRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.unset(\"new_id\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/{{new_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"{{new_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

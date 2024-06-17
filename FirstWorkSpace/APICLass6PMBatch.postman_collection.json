@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "cb59a2b6-a235-400a-941f-9dab81781f6b",
+		"name": "APICLass6PMBatch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "OPtions_Method",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Make_my_Trip_URL",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://jsak.mmtcdn.com/pwa_v3/pwa_commons/js/1563.364cfc34d3e412c08281.js",
+					"protocol": "https",
+					"host": [
+						"jsak",
+						"mmtcdn",
+						"com"
+					],
+					"path": [
+						"pwa_v3",
+						"pwa_commons",
+						"js",
+						"1563.364cfc34d3e412c08281.js"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Request_Single_User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/3",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Request_User_Not_Found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/53",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Request_List_Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/unknown",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Request_Single_List_Resource",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/unknown/12",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Request_List_Resources_Not_Found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/unknown/23",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"unknown",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Head_Request_Method",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.facebook.com/login",
+					"protocol": "https",
+					"host": [
+						"www",
+						"facebook",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Global_Variable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APIDomain}}/api/users?page=2",
+					"host": [
+						"{{APIDomain}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Collection_Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{APIDomain}}/{{Collection_Variable_Name}}/users?page=2",
+					"host": [
+						"{{APIDomain}}"
+					],
+					"path": [
+						"{{Collection_Variable_Name}}",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Environment_Request_Dev",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"name\" : {{Collection_Variabe_name}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APIDevEnv}}/{{Collection_Variable_Name}}/users?page=2",
+					"host": [
+						"{{APIDevEnv}}"
+					],
+					"path": [
+						"{{Collection_Variable_Name}}",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "local_Variable_Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//local vareiable\r",
+							"  pm.variables.set(\"key\",\"https://reqres.in\");\r",
+							"pm.environment.set(\"EnvironmentVarablesTesing\",\"enviorornmrnty\");\r",
+							" pm.globals.set(\"globalsVariableTesting\",\"globssal\");\r",
+							" pm.collectionVariables.set(\"CollectionVariables\",\"APITestingCollectionTestingsetProcess\");\r",
+							"\r",
+							"\r",
+							"pm.variables.set(\"localVeriable\",\"localvariablevalue\");\r",
+							"pm.environment.set(\"E\",\"environmentvalues\");\r",
+							" pm.globals.set(\"G\",\"globalTestingProcess\");\r",
+							" pm.collectionVariables.set(\"C\",\"API\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.variables.unset(\"key\");\r",
+							"// pm.globals.unset(\"globalsVariable\")\r",
+							"// pm.environment.unset(\"EnvironmentVarablesTesing\")\r",
+							"\r",
+							"\r",
+							"// pm.globals.unset(\"G\");\r",
+							"// pm.globals.unset(\"globalsVariableTesting\");\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"\r",
+							"var bodyName = JSON.parse(responseBody);\r",
+							"tests[\"validate the responseBIOdy \"] =bodyName.total == 12;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"kgvndkjkgvjdnkjgnkjdsjkgjdkgjkdnhj\",function(){\r",
+							"    pm.response.to.have.status ==400;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test_Scripts_Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"Pre-Request Script\");\r",
+							"pm.globals.set(\"URLGlobalVariable\",\"https\");\r",
+							"pm.collectionVariables.set(\"DomainClloectionvariable\",\"reqres\")\r",
+							"pm.variables.set(\"LocalVariable\",\"in\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"var jsonvariable = JSON.parse(responseBody);\r",
+							"// pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"// console.log(jsonvariable.total);\r",
+							"// console.log(jsonvariable.page);\r",
+							"// console.log(jsonvariable.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"\r",
+							"// tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"// pm.test(\"validate the response code\",()=>{\r",
+							"//     pm.response.to.have.status ==200;\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content- Encoding validation\",function(){\r",
+							"    pm.response.to .have.header(\"Content-Encoding\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"   pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"});\r",
+							"pm.test(\"validate the cookies value\",()=>{\r",
+							"   pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.above(50);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validate the datatype of the response\",()=>{\r",
+							"  pm.expect(jsonvariable.data).to.be.an(\"array\");\r",
+							"});\r",
+							"pm.test(\"validate the datatype of the response\",()=>{\r",
+							"  pm.expect(jsonvariable.total_pages).to.be.an(\"number\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validate the response body values\",()=>{\r",
+							"    pm.expect(jsonvariable.total_pages).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the response body array value\",function(){\r",
+							"    pm.expect(jsonvariable.data[0].year).to.eql(2000);\r",
+							"});\r",
+							"pm.test(\"validate the response body array value\",function(){\r",
+							"    pm.expect(jsonvariable.data[2].name).to.eql(\"true red\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{URLGlobalVariable}}://{{DomainClloectionvariable}}.{{LocalVariable}}/api/unknown",
+					"protocol": "{{URLGlobalVariable}}",
+					"host": [
+						"{{DomainClloectionvariable}}",
+						"{{LocalVariable}}"
+					],
+					"path": [
+						"api",
+						"unknown"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GoRest_API_Get_Method",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/628107",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"628107"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Real_time_API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\""
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.facebook.com/"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.facebook.com"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"url": {
+					"raw": "https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/PrP6345UAk4.js?_nc_x=Ij3Wp8lg5Kz",
+					"protocol": "https",
+					"host": [
+						"static",
+						"xx",
+						"fbcdn",
+						"net"
+					],
+					"path": [
+						"rsrc.php",
+						"v3",
+						"yX",
+						"r",
+						"PrP6345UAk4.js"
+					],
+					"query": [
+						{
+							"key": "_nc_x",
+							"value": "Ij3Wp8lg5Kz"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Real timeApplication API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsak.mmtcdn.com/pwa_v3/pwa_commons/js/FlightLandingPage.9ead629e8364601cdb65.js",
+					"protocol": "https",
+					"host": [
+						"jsak",
+						"mmtcdn",
+						"com"
+					],
+					"path": [
+						"pwa_v3",
+						"pwa_commons",
+						"js",
+						"FlightLandingPage.9ead629e8364601cdb65.js"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

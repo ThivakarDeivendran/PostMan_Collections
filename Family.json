@@ -1,0 +1,44 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Thivakar",
+      "location": "Chennai",
+      "phone": "123654789",
+      "courses": [
+        "Java",
+        "Selenium"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "vakar",
+      "location": "Trichy",
+      "phone": "55998866",
+      "courses": [
+        "Greens",
+        "India"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Testing",
+      "location": "Bangalore",
+      "phone": "456987123",
+      "courses": [
+        "Python",
+        "Devops"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Automation",
+      "location": "India",
+      "phone": "159875362",
+      "courses": [
+        "Tenth",
+        "Master"
+      ]
+    }
+  ]
+}

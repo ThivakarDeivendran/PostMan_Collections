@@ -1,0 +1,375 @@
+https://reqres.in/api/users?page=2
+https:///reqres.in------domain/host
+/api/users-------------- path parameters
+?page=2 ----------------Query parameters/filter
+
+IF URI having all the three modules(domain,Path parameter,Query Parameter)
+eg: Uniform Resources Identifier (https://reqres.in/api/users?page=2)
+
+If URL means having any one module (domain)
+eg: Uniform Resources Locator (https://reqres.in/)
+
+
+GET
+POST
+PUT
+PATCH
+DELETE
+OPTION---what are the request methods are allow to particular resources (Allow: GET,POST,PUT,DELETE)(server capablities)
+HEAD ----returns only the Headers with status code 200 without the response body
+
+
+https://reqres.in/api/users?page=2
+--------------------
+tests[] =responseCode.code ==200
+tests[] = responseBody.has(JSONfield)
+var refName =JSON.parse(responseBody)
+tests[] = refName.page ==2;
+
+
+Get Request : https://reqres.in/api/users/2
+-------------
+tests["Status_Code"]= responseCode.code == 200
+tests["First_Name"]= responseBody.has("Charles");---Optional 
+
+var varrefName =JSON.parse(responseBody)
+varrefName.data.first_name =="Charles"
+
+Post Request : https://reqres.in/api/users
+--------------
+JSON Body
+
+{
+"name": "Thivakar",
+"job": "API Testing"
+}
+
+Post Request : https://reqres.in/api/login
+--------------
+Json BodyRequest:
+{
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+}
+Response Body:
+{
+    "token": "e5kjkhu#93jnn3"    
+}
+==================================================================
+URL -----https://dummy.restapiexample.com/
+https://dummy.restapiexample.com/---> domain
+
+{"name":"Thivakar","salary":"18652","age":"27"}
+
+===================================================
+create Own New API
+http://localhost:3000/students
+
+JSON data types:
+---------------------
+String, Array, Null, Number,Object,Boolean
+
+Response Validations:
+--------------------------
+status code, Headers, Cookies,Response body, Response time
+
+chai Assertion library
+-------------------------------
+pm.test("Test Name", function (){    });   ----Normal Function
+
+pm.test("Test Name", () =>{   });      ------Arrow Function
+
+
+Test Methods for Status code:
+-----------------------------
+
+pm.test("Status code check ", () =>{
+pm.response.to.have.status(200);
+});
+ 
+
+pm.test("status code check ", ()=>
+{
+pm.expect(pm.response.code).to.be.oneOf([201,202])
+});
+
+ 
+Headers:
+------------------
+pm.test("validate header key present ", function() {
+pm.response.to.have.header("");
+});
+
+
+pm.test("validate header value ",()=>{
+pm.expect(pm.response.headers.get('content-type')).to.eql('');
+});
+
+Cookies:
+---------------
+pm.test("validate cookies key present ",()=>{
+pm.expect(pm.cookies.has('')).to.be.true;
+});
+
+
+pm.test("validate the cookies value",()=>{
+pm.expect(pm.cookies.get('')).to.eql('');
+});
+
+ResponseTime:
+-----------------
+pm.test("validate the response time", function(){
+pm.expect(pm.response.responseTime).to.be.below(60);
+});
+
+ResponseBody: (It applicable for single object)
+-----------------
+var varReferenceName = pm.response.json();
+pm.test("validate the bodyKeys",()=>{
+pm.expect(varReferenceName.phone).to.be.a("string");
+pm.expect(varReferenceName).to.be.an("object");
+});
+
+ArrayProperties: (It applicable for single object)
+--------------------
+var varReferenceName = pm.response.json();
+pm.test("validate the arrayValue",()=>{
+pm.expect(varReferenceName.courses).to.include("");---single value
+pm.expect(varReferenceName.courses).to.have.members(["",""]);
+});
+
+JsonFieldsValue:
+-----------------
+
+var varReferenceName = pm.response.json();
+pm.test("validate the jsonfieldvalue ",()=>{
+pm.expect(varReferenceName.name).to.eql(" ");
+});
+
+
+JsonSchema:
+---------------
+
+pm.test("validate the json schema, ()=>{
+pm.expect(tv4.validate(varReferenceName,schemaReferenceName)).to.be.true;
+}");
+
+tv4---tiny validator 4
+
+
+Example:
+{
+        "id": 1,
+        "name": "Thivakar",
+        "location": "Chennai",
+        "phone": "123654789",
+        "courses": [
+            "Java",
+            "Selenium"
+        ]
+    }
+JsonSchema for above example
+-----------------------------------
+
+var schemaReferenceName ={
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "courses": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "location",
+    "phone",
+    "courses"
+  ]
+}
+
+
+Pre-request Script
+====================
+
+Have to write pre-request scripts on collection level,folder level, and request level
+
+Console.log("");
+
+
+Postman Variables:
+====================
+
+workspace----->collection----->request
+
+1)global variable
+2)collection variable
+3)environment variable
+4)local variable
+5)data variable
+
+Global variable	
+====================
+global access in workspace
+
+{{referenceName}}
+
+Collection variable
+=======================
+Access within the collection
+{{referenceName}}
+
+Environment Varible
+=======================
+Access in all collection,but we need to switch to particular environment
+{{referenceName}}
+
+local Variable
+================
+accessible only within the request(specfic request)
+In Pre-request scripts need to create local variable
+
+pm.variable.set("referenceName","values");
+
+data Variable
+============
+access in external file csv/text
+
+note: have to create global variable, collection variable, environment variable 
+in scripts also
+
+pm.global.set("key","value");
+pm.environment.set("","");
+pm.collectionVariables.set("key","value")
+
+
+Unset the variables at Tests scripts place
+==============================================
+pm.global.unset("key");
+pm.environment.unset("key");
+pm.collection.unset("key");
+
+
+get variables value
+=======================
+pm.globals.get("referenceName");
+pm.collectionVariables.get("referenceName");
+pm.environment.get("referenceName")
+console.log(pm.variables.get("referenceName"))  
+
+API chaining:
+===============
+the response of one API will be the request for next API
+
+goRest API website:
+===================
+bearer Token: 
+
+d6765d9925769af8357f7c13525aea56ce4f612a176e56d078f8b9e9f3e2a571
+
+host or domain: https://gorest.co.in/public/v2/users/514
+
+
+
+post Record:
+{
+        "name": "Thivakar Deivendran",
+        "email": "Basketball@gmail.com",
+        "gender": "male",
+        "status": "inactive"
+    }
+
+need to create random string :
+-----------------------------------
+In Pre-Request script: var varReferenceName =   Math.random().toString(36).subString(3)
+
+compare the POST data to GET data:
+---------------------------------------
+pm.expect(varReferenceName.fieldName)to.eql(pm.collectionVariables.get("keys"))
+
+Parameterised
+==============
+
+Access Token:
+accessToken": "c7d3af800ca277bae1e549649fb9f975060364bc406dd560c9685e38f16d7e6f"
+
+ 	
+host or domain url : 
+https://simple-books-api.glitch.me
+
+
+30/01/2023---Access Token
+accessToken": "8ed1f7029ef2a0af4844ec3f647c7bc90ad6ae16cb086e6845dc99ec01c8cf22"
+{
+{
+   "clientName": "Waker",
+   "clientEmail": "Thiva@gmail.com"
+}
+}
+
+
+
+12/02/2023-----Access Token
+accessToken: "9457130973190aded42903fffd2b0cddbd9ffdf82b460b9ce0565c62e8941183"
+{
+   "clientName": "Thivakar",
+   "clientEmail": "dthivakar1@gmail.com"
+}
+
+File upload API:
+======================
+
+file-upload-RestAPI.jar
+
+In cmd   java - jar file-upload-RestAPI.jar --httpPort=9595
+
+
+cURL and Swagger:
+=======================
+Swagger---interactive documentation (Fakerestapi.azurewebsites.net)
+it only for documentation just for exploring the api's
+
+cURL------Client Uniform Resource Locator(client URL)
+
+NewMan Tool:
+===================
+
+Newman is a CLI (Command-line interface) tool which allows you to run a Postman collection directly from the command line. 
+According to the official website of Postman, they describe Newman as a command-line Collection Runner for Postman.
+
+npm(node package Manager)
+npm install -g newman
+
+Newman version  ==== newman - v    
+available options for a comment in newmen== newman [command] -h ((newman run -h))
+
+
+
+run collection:  newman run collectionName.json(using export file method)
+run collection:   newman run getlink (using getLink method)
+
+
+
+run request: newman run collectionName.json -e environmentName.json -g globalName.json
+
+explore reports  -r cli.json.junit.html

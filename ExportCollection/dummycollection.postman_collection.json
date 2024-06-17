@@ -1,0 +1,31 @@
+{
+	"info": {
+		"_postman_id": "9049e334-eb0e-4f6f-8075-bc618cf4408b",
+		"name": "dummycollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "GetUserRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Collection_level_Runner" tests="6" time="7.558">
+  <testsuite name="DemoRequest" id="773687fa-6ae5-4988-9d4d-f83b1a96807c" timestamp="2023-12-03T15:28:24.123Z" tests="9" failures="2" errors="0" time="1.927">
+    <testcase name="status code validation API Testing" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="validate the code" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="validate the header" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="validate the response code" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="Content- Encoding validation" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="validate the Content-Encoding value" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="validate the cookies value" time="1.927" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'api'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: DemoRequest.]]>
+        <![CDATA[Test description: validate the cookies value.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'api'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'api'
+   at Object.eval sandbox-script.js:7:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Validate the Status Code" time="1.927" classname="CollectionLevelRunner"/>
+    <testcase name="checkingStatus Code" time="1.927" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: DemoRequest.]]>
+        <![CDATA[Test description: checkingStatus Code.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:9:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Unique_user_Request" id="68f63564-c236-4088-8647-47b7f0e1e9c0" timestamp="2023-12-03T15:28:24.123Z" tests="10" failures="2" errors="0" time="1.599">
+    <testcase name="status code validation API Testing" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="validate the code" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="validate the header" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="validate the response code" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="Content- Encoding validation" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="validate the Content-Encoding value" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="validate the cookies value" time="1.599" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'api'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Unique_user_Request.]]>
+        <![CDATA[Test description: validate the cookies value.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'api'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'api'
+   at Object.eval sandbox-script.js:7:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the response time" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="Validate the Status Code" time="1.599" classname="CollectionLevelRunner"/>
+    <testcase name="checkingStatus Code" time="1.599" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Unique_user_Request.]]>
+        <![CDATA[Test description: checkingStatus Code.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:10:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Post_method" id="aa0ea928-c6d5-4fba-80b3-b15ce27d63c3" timestamp="2023-12-03T15:28:24.123Z" tests="10" failures="4" errors="0" time="1.776">
+    <testcase name="status code validation API Testing" time="1.776" classname="CollectionLevelRunner"/>
+    <testcase name="validate the code" time="1.776" classname="CollectionLevelRunner"/>
+    <testcase name="validate the header" time="1.776" classname="CollectionLevelRunner"/>
+    <testcase name="validate the response code" time="1.776" classname="CollectionLevelRunner"/>
+    <testcase name="Content- Encoding validation" time="1.776" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected response to have header with key 'Content-Encoding'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Post_method.]]>
+        <![CDATA[Test description: Content- Encoding validation.]]>
+        <![CDATA[Error message: expected response to have header with key 'Content-Encoding'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected response to have header with key 'Content-Encoding'
+   at Object.eval sandbox-script.js:5:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the Content-Encoding value" time="1.776" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'br'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Post_method.]]>
+        <![CDATA[Test description: validate the Content-Encoding value.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'br'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'br'
+   at Object.eval sandbox-script.js:6:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the cookies value" time="1.776" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'api'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Post_method.]]>
+        <![CDATA[Test description: validate the cookies value.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'api'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'api'
+   at Object.eval sandbox-script.js:7:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the response time" time="1.776" classname="CollectionLevelRunner"/>
+    <testcase name="Validate the Status Code" time="1.776" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Post_method.]]>
+        <![CDATA[Test description: Validate the Status Code.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:9:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="checkingStatus Code" time="1.776" classname="CollectionLevelRunner"/>
+  </testsuite>
+  <testsuite name="PUT_method" id="b8c6b505-cd65-4706-b4d1-b4b0eb5f38e3" timestamp="2023-12-03T15:28:24.123Z" tests="10" failures="2" errors="0" time="0.814">
+    <testcase name="status code validation API Testing" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="validate the code" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="validate the header" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="validate the response code" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="Content- Encoding validation" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="validate the Content-Encoding value" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="validate the cookies value" time="0.814" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'api'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: PUT_method.]]>
+        <![CDATA[Test description: validate the cookies value.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'api'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'api'
+   at Object.eval sandbox-script.js:7:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the response time" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="Validate the Status Code" time="0.814" classname="CollectionLevelRunner"/>
+    <testcase name="checkingStatus Code" time="0.814" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: PUT_method.]]>
+        <![CDATA[Test description: checkingStatus Code.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:10:4).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="patch_Request" id="b3b7d040-6ccb-4eaf-b56d-8370191d575c" timestamp="2023-12-03T15:28:24.123Z" tests="10" failures="2" errors="0" time="0.719">
+    <testcase name="status code validation API Testing" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="validate the code" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="validate the header" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="validate the response code" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="Content- Encoding validation" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="validate the Content-Encoding value" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="validate the cookies value" time="0.719" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'api'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: patch_Request.]]>
+        <![CDATA[Test description: validate the cookies value.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'api'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'api'
+   at Object.eval sandbox-script.js:7:5).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the response time" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="Validate the Status Code" time="0.719" classname="CollectionLevelRunner"/>
+    <testcase name="checkingStatus Code" time="0.719" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: patch_Request.]]>
+        <![CDATA[Test description: checkingStatus Code.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:10:5).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Delete_Request" id="b2dd94ca-8159-4636-a6e8-2360d76b234d" timestamp="2023-12-03T15:28:24.123Z" tests="4" failures="1" errors="0" time="0.723">
+    <testcase name="validate the code" time="0.723" classname="CollectionLevelRunner"/>
+    <testcase name="validate the header" time="0.723" classname="CollectionLevelRunner">
+      <failure type="AssertionFailure" message="expected undefined to deeply equal 'application/json; charset=utf-8'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: 3671b384-081e-43cd-bc87-a1835f2302a1.]]>
+        <![CDATA[Collection name: Collection_level_Runner.]]>
+        <![CDATA[Request name: Delete_Request.]]>
+        <![CDATA[Test description: validate the header.]]>
+        <![CDATA[Error message: expected undefined to deeply equal 'application/json; charset=utf-8'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected undefined to deeply equal 'application/json; charset=utf-8'
+   at Object.eval sandbox-script.js:2:6).]]>
+      </failure>
+    </testcase>
+    <testcase name="validate the response time" time="0.723" classname="CollectionLevelRunner"/>
+    <testcase name="Validate the Status Code" time="0.723" classname="CollectionLevelRunner"/>
+  </testsuite>
+</testsuites>

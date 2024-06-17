@@ -1,0 +1,519 @@
+{
+	"info": {
+		"_postman_id": "3671b384-081e-43cd-bc87-a1835f2302a1",
+		"name": "Collection_level_Runner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "DemoRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonvariable = JSON.parse(responseBody);\r",
+							"\r",
+							"//let jsonvariable =JSON.parse(responseBody);\r",
+							"//const jsonvariaable = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"console.log(jsonvariable.total);\r",
+							"console.log(jsonvariable.page);\r",
+							"console.log(jsonvariable.per_page);\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"\r",
+							" tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response code\",()=>{\r",
+							"    pm.response.to.have.status ==200;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content- Encoding validation\",function(){\r",
+							"    pm.response.to .have.header(\"Content-Encoding\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"   pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"});\r",
+							"pm.test(\"validate the cookies value\",()=>{\r",
+							"   pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"Pre-Request Script\");\r",
+							"pm.globals.set(\"URLGlobalVariable\",\"https\");\r",
+							"pm.collectionVariables.set(\"DomainClloectionvariable\",\"reqres\")\r",
+							"pm.variables.set(\"LocalVariable\",\"in\")\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unique_user_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonvariable = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"console.log(jsonvariable.total);\r",
+							"console.log(jsonvariable.page);\r",
+							"console.log(jsonvariable.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"\r",
+							" tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validate the response code\",()=>{\r",
+							"    pm.response.to.have.status ==200;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content- Encoding validation\",function(){\r",
+							"    pm.response.to .have.header(\"Content-Encoding\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"   pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"});\r",
+							"pm.test(\"validate the cookies value\",()=>{\r",
+							"   pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.above(50);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/9",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post_method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonvariable = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"console.log(jsonvariable.total);\r",
+							"console.log(jsonvariable.page);\r",
+							"console.log(jsonvariable.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"\r",
+							" tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validate the response code\",()=>{\r",
+							"    pm.response.to.have.status ==200;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content- Encoding validation\",function(){\r",
+							"    pm.response.to .have.header(\"Content-Encoding\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"   pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"});\r",
+							"pm.test(\"validate the cookies value\",()=>{\r",
+							"   pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.above(50);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Naveen\",\r\n    \"job\": \"API Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/23",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonvariable = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"console.log(jsonvariable.total);\r",
+							"console.log(jsonvariable.page);\r",
+							"console.log(jsonvariable.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"\r",
+							" tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response code\",()=>{\r",
+							"    pm.response.to.have.status ==200;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content- Encoding validation\",function(){\r",
+							"    pm.response.to .have.header(\"Content-Encoding\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"   pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"});\r",
+							"pm.test(\"validate the cookies value\",()=>{\r",
+							"   pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.above(50);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Naveen\",\r\n    \"job\": \"Automation Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/139",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"139"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonvariable = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"console.log(jsonvariable.total);\r",
+							"console.log(jsonvariable.page);\r",
+							"console.log(jsonvariable.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 200;\r",
+							"\r",
+							" tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"pm.test(\"status code validation API Testing\",function() {\r",
+							"    pm.response.to.have.status == 200;\r",
+							"});\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response code\",()=>{\r",
+							"    pm.response.to.have.status ==200;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content- Encoding validation\",function(){\r",
+							"    pm.response.to .have.header(\"Content-Encoding\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"   pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"});\r",
+							"pm.test(\"validate the cookies value\",()=>{\r",
+							"   pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.above(50);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"job\": \"manual Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/139",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"139"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// var jsonvariable = JSON.parse(responseBody);\r",
+							"// pm.collectionVariables.set(\"total_pages\",jsonvariable.total)\r",
+							"// console.log(jsonvariable.total);\r",
+							"// console.log(jsonvariable.page);\r",
+							"// console.log(jsonvariable.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"Validate the Status Code\"]= responseCode.code == 204;\r",
+							"\r",
+							"// tests[\"checkingStatus Code\"]=responseCode.code== 201;\r",
+							"\r",
+							"// pm.test(\"status code validation API Testing\",function() {\r",
+							"//     pm.response.to.have.status == 200;\r",
+							"// });\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.expect(pm.response.code).to.oneOf([200,201,204]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the header\",()=>{\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql('application/json; charset=utf-8')\r",
+							"})\r",
+							"\r",
+							"\r",
+							"// pm.test(\"validate the response code\",()=>{\r",
+							"//     pm.response.to.have.status ==200;\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"// pm.test(\"Content- Encoding validation\",function(){\r",
+							"//     pm.response.to .have.header(\"Content-Encoding\");\r",
+							"// });\r",
+							"\r",
+							"// pm.test(\"validate the Content-Encoding value\",()=>{\r",
+							"//    pm.expect(pm.response.headers.get('Content-Encoding')).to.eql('br');\r",
+							"// });\r",
+							"// // pm.test(\"validate the cookies value\",()=>{\r",
+							"//    pm.expect(pm.response.cookies.get('testing')).to.eql('api');\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.above(50);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/7",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"7"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "DomainClloectionvariable",
+			"value": ""
+		},
+		{
+			"key": "total_pages",
+			"value": ""
+		}
+	]
+}

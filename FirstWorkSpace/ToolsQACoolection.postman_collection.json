@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "217b1719-5011-4cbc-a2b9-56ec02e8ea5d",
+		"name": "ToolsQACoolection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"validate the response Code\"]=responseCode.code==200;\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the code\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the content type\",()=>{\r",
+							"    pm.response.headers.has(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the value of Content Type\",()=>{\r",
+							"pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"text/html; charset=utf-8\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.toolsqa.com/",
+					"protocol": "https",
+					"host": [
+						"www",
+						"toolsqa",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{GlobalVariable6pm}}/{{EnvVariable6pm}}?page=2",
+					"host": [
+						"{{GlobalVariable6pm}}"
+					],
+					"path": [
+						"{{EnvVariable6pm}}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

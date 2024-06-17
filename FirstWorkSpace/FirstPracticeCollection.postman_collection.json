@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "1f745898-344b-4e3f-b44a-c1cf92753189",
+		"name": "FirstPracticeCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "BookAPIRequest",
+			"item": [
+				{
+					"name": "GetBookListRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"validate the status code\",()=>{\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validate the StatusCode\",function(){\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,404]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://simple-books-api.glitch.me/books",
+							"protocol": "https",
+							"host": [
+								"simple-books-api",
+								"glitch",
+								"me"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetStaticBookRequest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"validate the status code\",()=>{\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"validate the StatusCode\",function(){\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,404]);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://simple-books-api.glitch.me/books/2",
+							"protocol": "https",
+							"host": [
+								"simple-books-api",
+								"glitch",
+								"me"
+							],
+							"path": [
+								"books",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PracticeGetRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"validate 1\"]=responseCode.code==200\r",
+							"tests[\"validate 2\"]=responseBody.has(\"per_page\")\r",
+							"\r",
+							"\r",
+							"var namenn =JSON.parse(responseBody)\r",
+							"tests[\"validate 3\"]=namenn.total_pages ==2\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the code\",()=>{\r",
+							"    pm.response.to.have.status==200;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the statusCode\",function(){\r",
+							"pm.expect(pm.response.code).to.oneOf([200,201,400,500])\r",
+							"});\r",
+							"pm.test(\"validate the headers keys\",function(){\r",
+							"    pm.expect(pm.response.headers.get('Vary')).to.eql('Accept-Encoding')\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate the responseTime\",()=>{\r",
+							"    pm.expect(pm.response.responseTime).to.below(1000);\r",
+							"});\r",
+							"\r",
+							"var varname =pm.response.json();\r",
+							"pm.test(\"validate the refer\",()=>{\r",
+							"    pm.expect(varname.data).to.be.an(\"array\")\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"validate the value\",function(){\r",
+							"    pm.expect(varname.per_page).to.eql(6);\r",
+							"    pm.expect(varname.support.text).to.eql(\"To keep ReqRes free, contributions towards server costs are appreciated!\")\r",
+							"    //pm.expect(varname.data.last_name).to.have.members([\"Bluth\",\"Weaver\",\"Wong\",\"Holt\",\"Morris\",\"Ramos\"])\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"pre-requstic scripts on request level\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TestGetRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//tests[\"validate the status code\"] =responseCode.code == 200;\r",
+							"//tests[\"validate the ResponseBody\"]=responseBody.has(\"data\");\r",
+							"\r",
+							"//var testrefName =JSON.parse(responseBody);\r",
+							"//tests[\"first_Name\"]=testrefName.data[0].first_name == \"Michael\";\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSingleRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status_Code\"]= responseCode.code == 200\r",
+							"var varrefName =JSON.parse(responseBody)\r",
+							"//tests[\"validate firstName\"]=varrefName.data.first_name ==\"Thivakar\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewPostRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Validate Status_code\"]= responseCode.code ==201;\r",
+							"\r",
+							"var varrefName =JSON.parse(responseBody);\r",
+							"tests[\"Validate Name\"]=varrefName.name ==\"ThivakarDeivendran\";\r",
+							"\r",
+							"tests[\"validate id\"]=responseBody.has(\"id\")\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"ThivakarDeivendran\",\r\n\"job\": \"Automation Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetResponsePostRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"validate Negative_Status_code\"]=responseCode.code ==400;\r",
+							"tests[\"validate Error\"]= responseBody.has(\"error\");\r",
+							"\r",
+							"//tests[\"VALIDATE NEGATIVE_STATUS_CODE\"]=responseCode.code ==200;\r",
+							"//tests[\"VALIDATE TOKEN\"] = responseBody.has(\"token\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@req\",\r\n    \"password\": \"cityslicka\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/login",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUserRequest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"ThivakarDeivendran\",\r\n\"job\": \"AUTOMATION TESTING ENGINEER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/801",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"801"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUserPatchRequest",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"job\": \"QA AUTOMATION API TEST ENGINEER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/801",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"801"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUserRequest",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/801",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"801"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OptionsUserRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

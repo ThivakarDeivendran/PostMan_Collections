@@ -1,0 +1,38 @@
+RestAssured Methods
+---------------------
+given()---Content-type, set Cookies, Add auth, add params, set headers info etc...
+when()----get,post,put,delete
+then()----validations (Status code, response body, response headers)
+
+Static packaeges:
+===================
+
+import static io.restassured.RestAssured.*
+ import static io.restassured.matcher.RestAssuredMatchers.*
+import static org.hamcrest.Matchers.*
+
+
+Four type of post method Data
+==============================
+HashMap Concept
+JSON Object
+POJO Class Object
+External JSON File
+
+Path & Query parameters
+=========================
+ 
+https://www.google.com
+
+
+
+
+
+Types of Creating RequestBody:
+----------------------------------------
+1) HashMap
+2) Using org.json
+3) Using POJO (Plain Old Java Object)
+4) Using External Json File
+
+

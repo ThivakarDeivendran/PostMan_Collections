@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "efa6421e-a485-4213-ae7a-fe6fb94597af",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "GET_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var variable_Name=JSON.parse(responseBody)\r",
+							"\r",
+							"// var testScripts =pm.response.json();\r",
+							"\r",
+							"// pm.collectionVariables.set(\"total_pages\",testScripts.total)\r",
+							"// console.log(testScripts.total);\r",
+							"// console.log(testScripts.page);\r",
+							"// console.log(testScripts.per_page);\r",
+							"\r",
+							"\r",
+							"// tests[\"validate the status code\"]= responseCode.code ==200\r",
+							"\r",
+							"// console.log(\"validate tehe status of the Response\")\r",
+							"// pm.test(\"validate the Status code for TC1\",function(){\r",
+							"// pm.response.to.have.status == 200\r",
+							"// })\r",
+							"\r",
+							"// pm.test(\"Name\",function(){\r",
+							"//        pm.expect(pm.response.code).to.oneOf([200,204,201]);  \r",
+							"// })\r",
+							"\r",
+							"// pm.test(\"validate the Response headers\",()=>{\r",
+							"//     pm.response.to.have.header(\"Connection\")\r",
+							"// })\r",
+							"\r",
+							"// pm.test(\"validate the headers for TC1\",()=>{\r",
+							"\r",
+							"//    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\")\r",
+							"//    pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+							"// })\r",
+							"\r",
+							"// pm.test(\"validate the response time\",()=>{\r",
+							"// pm.expect(pm.response.responseTime).to.below(200);\r",
+							"// })\r",
+							"\r",
+							"\r",
+							"// pm.test(\"validate the response body schema1\",function(){\r",
+							"//     pm.expect(testScripts.page).to.be.a(\"number\")\r",
+							"// })\r",
+							"// pm.test(\"validate the response body schema2\",function(){\r",
+							"//     pm.expect(testScripts.data).to.be.a('array')\r",
+							"// })\r",
+							"\r",
+							"// pm.test(\"validate the response body data\",function(){\r",
+							"//     pm.expect(testScripts.data[3].last_name).to.be.an(\"String\").that.is.not.null\r",
+							"//     pm.expect(testScripts.data[3].last_name).to.eql(\"Fields\")\r",
+							"// })\r",
+							"\r",
+							"// pm.globals.set(\"glllllllllll\",testScripts.data[3].last_name);\r",
+							"\r",
+							"//Here Test is collection_variable Name.Using Get() MEthod take the value of Test Key\r",
+							"\r",
+							"var v =pm.response.json()\r",
+							"\r",
+							"pm.test(\"validate\",function(){\r",
+							"    pm.expect(v.data.first_name).to.eql( pm.variables.get(\"Test\"));\r",
+							"})\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{fnkngkk}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "HEAD",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"{{}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_REQUEST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Thivakar\",\r\n    \"job\": \"Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_METHOD",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Kannan\",\r\n    \"job\": \"Testing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/819",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"819"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch_Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sundar\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/819",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"819"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Option_Method",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AMAZON_REQUEST",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://unagi-eu.amazon.com/1/events",
+					"protocol": "https",
+					"host": [
+						"unagi-eu",
+						"amazon",
+						"com"
+					],
+					"path": [
+						"1",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test_Scripts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var variable_Name=JSON.parse(responseBody)\r",
+							"\r",
+							"pm.collectionVariables.set(\"total_pages\",variable_Name.total)\r",
+							"console.log(variable_Name.total);\r",
+							"console.log(variable_Name.page);\r",
+							"console.log(variable_Name.per_page);\r",
+							"\r",
+							"\r",
+							"tests[\"validate the status code\"]= responseCode.code ==200\r",
+							"\r",
+							"console.log(\"validate tehe status of the Response\")\r",
+							"pm.test(\"validate the Status code for TC1\",function(){\r",
+							"pm.response.to.have.status == 200\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Name\",function(){\r",
+							"       pm.expect(pm.response.code).to.oneOf([200,204,201]);  \r",
+							"})\r",
+							"\r",
+							"pm.test(\"validate the Response headers\",()=>{\r",
+							"    pm.response.to.have.header(\"Connection\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"validate the headers for TC1\",()=>{\r",
+							"\r",
+							"   pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\")\r",
+							"   pm.expect(pm.response.headers.get(\"Connection\")).to.eql(\"keep-alive\");\r",
+							"})\r",
+							"\r",
+							"\r",
+							"pm.globals(\"glllllllllll\",)\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							"console.log(\"Pre_Request_Scripts\")\r",
+							"pm.globals.set(\"global_variable_Scripts\",\"https:\");\r",
+							"pm.collectionVariables.set(\"collection_varable_script\",\"reqres\");\r",
+							"pm.environment.set(\"environment_variable_Scripts\",\"page\");\r",
+							"pm.variables.set(\"Local_variable_scripts\",\"2\");\r",
+							"console.log(\"Pre_Request_Scripts ar success\")\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{global_variable_Scripts}}/{{collection_varable_script}}.in/api/users?{{environment_variable_Scripts}}={{Local_variable_scripts}}",
+					"host": [
+						"{{global_variable_Scripts}}"
+					],
+					"path": [
+						"",
+						"{{collection_varable_script}}.in",
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "{{environment_variable_Scripts}}",
+							"value": "{{Local_variable_scripts}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "collection_varable_script",
+			"value": ""
+		},
+		{
+			"key": "total_pages",
+			"value": ""
+		},
+		{
+			"key": "Test",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

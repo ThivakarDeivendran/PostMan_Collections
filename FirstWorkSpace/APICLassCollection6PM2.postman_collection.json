@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "0af6f386-aa92-4093-a873-63d592533a85",
+		"name": "APICLassCollection6PM2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "get_Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API 6pm Class Status code\",function(){\r",
+							"    pm.response.to.be.status(200);\r",
+							"})\r",
+							"pm.test(\"validate status code\",()=>{\r",
+							"  pm.expect(pm.response.code).to.oneOf([200,201,404])\r",
+							"})\r",
+							"pm.test(\"validate the header response\",()=>{\r",
+							"    pm.response.to.have.header(\"content-type\")\r",
+							"})\r",
+							"pm.test(\"validate the header value\",()=>{\r",
+							"    pm.expect(pm.response.headers.get('Transfer-Encoding')).to.eql('chunked')\r",
+							"})\r",
+							"pm.test(\"validate the cookies\",()=>{\r",
+							"    pm.expect(pm.cookies.has('APITesting')).to.be.false;\r",
+							"})\r",
+							"pm.test(\"validate the response time\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.above(50);\r",
+							"})\r",
+							"// const, let, var\r",
+							"const responseVariable=pm.response.json();\r",
+							"pm.test(\"validate the response body\",()=>{\r",
+							"    pm.expect(responseVariable).to.be.an(\"object\");    \r",
+							"    pm.expect(responseVariable.total).to.be.a(\"number\");\r",
+							"})\r",
+							"pm.test(\"validate  the response body values\",()=>{\r",
+							"pm.expect(responseVariable.per_page).to.eql(pm.variables.get(\"Actual_perpage_value\"));\r",
+							"})\r",
+							"pm.test(\"validate the array\",()=>{\r",
+							"    pm.expect(responseVariable.data[1].last_name).to.eql(\"Weaver\");\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.variables.set(\"Actual_perpage_value\",6);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{GlobalVariable6pm}}/{{EnvVariable6pm}}?{{CollectionVariable6pm}}",
+					"host": [
+						"{{GlobalVariable6pm}}"
+					],
+					"path": [
+						"{{EnvVariable6pm}}"
+					],
+					"query": [
+						{
+							"key": "{{CollectionVariable6pm}}",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_unique_Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"we start the testing\");\r",
+							"\r",
+							"pm.globals.set(\"variableGlobal\",\"https//amazon.in\")\r",
+							"pm.collectionVariables.set(\"variableCollection\",\"https//facebook.in\")\r",
+							"pm.environment.set(\"variableEnvironment\",\"jkngkjesrhjkgsnfkjdnsjx\")\r",
+							"\r",
+							"\r",
+							"pm.variables.set(\"localVariable6pm\",\"7\")\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validate the status\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"pm.globals.unset(\"GlobalVariable6pm\")\r",
+							"\r",
+							"console.log(\"validation complete for status code\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1325e20a739293b02e9b98ea51156c56",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/{{localVariable6pm}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{localVariable6pm}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put_Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"email\": \"michael.lawson@reqres.in\",\r\n        \"first_name\": \"Michael\",\r\n        \"last_name\": {{}},\r\n        \"avatar\": \"https://reqres.in/img/faces/7-image.jpg\"\r\n        \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/7",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch_Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"first_name\": \"greens\"   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/7",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Head_Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Option_Request",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=1",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Real_Request",
+			"request": {
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://bam.nr-data.net/events/1/NRJS-dd5f16cdf95712c6cba?a=1588759528&sa=1&v=1.236.0&t=Unnamed%20Transaction&rst=4503&ck=0&s=872a55225922a906&ref=https://www.flipkart.com/mobile-phones-store",
+					"protocol": "https",
+					"host": [
+						"bam",
+						"nr-data",
+						"net"
+					],
+					"path": [
+						"events",
+						"1",
+						"NRJS-dd5f16cdf95712c6cba"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "1588759528"
+						},
+						{
+							"key": "sa",
+							"value": "1"
+						},
+						{
+							"key": "v",
+							"value": "1.236.0"
+						},
+						{
+							"key": "t",
+							"value": "Unnamed%20Transaction"
+						},
+						{
+							"key": "rst",
+							"value": "4503"
+						},
+						{
+							"key": "ck",
+							"value": "0"
+						},
+						{
+							"key": "s",
+							"value": "872a55225922a906"
+						},
+						{
+							"key": "ref",
+							"value": "https://www.flipkart.com/mobile-phones-store"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "option_new_Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1325e20a739293b02e9b98ea51156c56",
+							"type": "string"
+						}
+					]
+				},
+				"method": "OPTIONS",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/register",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_request_gorest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/1700785/posts",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"1700785",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CollectionVariable6pm",
+			"value": "page=1"
+		},
+		{
+			"key": "CollectionVariable6pm",
+			"value": ""
+		},
+		{
+			"key": "variableCollection",
+			"value": ""
+		}
+	]
+}

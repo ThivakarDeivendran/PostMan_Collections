@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "126a3594-1dc9-499b-a4bd-881ae43aac6f",
+		"name": "APIWEEKEND_CLASS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "WEEKEND_Folder",
+			"item": [
+				{
+					"name": "First_GET_Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code validation\",()=> { pm.response.to.have.status(200)});\r",
+									"\r",
+									"pm.test(\"status code validate\",function() {pm.response.to.have.status(200)});\r",
+									"\r",
+									"pm.test(\"sucessful response\",()=> { pm.expect(pm.response.code).to.oneOf([200,201,400])});\r",
+									"\r",
+									"pm.test(\"response header validate\",function(){pm.response.to.have.header(\"Content-Type\")});\r",
+									"\r",
+									"pm.test(\"response Content-Type validate\",()=> {\r",
+									"    pm.expect(pm.response.headers.get('CONTENT-TYPE')).to.eql('application/json; charset=utf-8')\r",
+									"});\r",
+									"\r",
+									"pm.test(\"cookies\",()=>\r",
+									" { pm.expect(pm.cookies.has('langauage')).to.be.false;\r",
+									"    })\r",
+									"\r",
+									"// pm.test(\"validate response time\",()=>{\r",
+									"//     pm.expect(pm.response.responseTime).to.be.below(60);\r",
+									"// })\r",
+									"\r",
+									"// pm.test(\"validate response time\",()=>{\r",
+									"//     pm.expect(pm.response.responseTime).to.be.above(500);\r",
+									"// })\r",
+									"\r",
+									"const jsonBody= pm.response.json();\r",
+									"\r",
+									"pm.test(\"test the datatype in the responseBody\", function () {\r",
+									"    pm.expect(jsonBody).to.be.an(\"object\");\r",
+									"    pm.expect(jsonBody.total).to.be.a(\"number\");\r",
+									"    pm.expect(jsonBody.data).to.be.an(\"array\");\r",
+									"})\r",
+									"\r",
+									"pm.test(\"validate jsonResponse data\",()=>\r",
+									"{\r",
+									"  pm.expect(jsonBody.total).to.eql(12);\r",
+									"  pm.expect(jsonBody.per_page).to.eql(6)\r",
+									"  pm.expect(jsonBody.page).to.eql(2)\r",
+									" \r",
+									"  //pm.expect().to.eql(\"Fields\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data[3].last_name).to.eql(\"Fields\");\r",
+									"});\r",
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.data[.id).to.eql(7);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.variables.set(\"local_variables\",\"api/users?\");\r",
+									"\r",
+									"pm.globals.set(\"global_variable\",\"https://www.amazon.in\");\r",
+									"\r",
+									"pm.collectionVariables.set(\"collection_variable\",\"https://reqres.in\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://reqres.in/api/users?page=2",
+							"protocol": "https",
+							"host": [
+								"reqres",
+								"in"
+							],
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post_Method_Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Vishal\",\r\n    \"job\": \"APITESTER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{collection_variable}}/api/users",
+							"host": [
+								"{{collection_variable}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "collection_variable",
+			"value": ""
+		}
+	]
+}

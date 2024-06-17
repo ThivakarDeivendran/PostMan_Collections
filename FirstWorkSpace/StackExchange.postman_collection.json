@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "c548b2ab-69c4-45c3-8c14-cf36d1534a45",
+		"name": "StackExchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "General_Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.stackexchange.com/docs/authentication",
+					"protocol": "https",
+					"host": [
+						"api",
+						"stackexchange",
+						"com"
+					],
+					"path": [
+						"docs",
+						"authentication"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

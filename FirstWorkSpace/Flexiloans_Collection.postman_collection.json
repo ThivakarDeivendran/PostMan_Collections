@@ -1,0 +1,845 @@
+{
+	"info": {
+		"_postman_id": "1678cfa3-0069-4d34-bfb4-a9132c0955a9",
+		"name": "Flexiloans_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25346390"
+	},
+	"item": [
+		{
+			"name": "get_Cibil pull Initiated",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "/"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJySVwvRTAwZmJVKzVCbFBPTTJjRXZRd0U1cHdVK29nbFl4Y2o3YStvVzA4TT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqanMycTBtczFmYjZiZWJ0dWhyb3Izcm9xIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJidXJlYXVhcHBsaWNhdGlvbmxheWVyXC9yZWFkIGJ1cmVhdWFwcGxpY2F0aW9ubGF5ZXJcL3dyaXRlIiwiYXV0aF90aW1lIjoxNzE1MDYwMDg3LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX0NxNlRwQTVGciIsImV4cCI6MTcxNTA2MzY4NywiaWF0IjoxNzE1MDYwMDg3LCJ2ZXJzaW9uIjoyLCJqdGkiOiIwNjEwNjQ3NS0wNDg2LTRkYjItYjUxZi1hYjMzYjU5NDVhZDMiLCJjbGllbnRfaWQiOiJqanMycTBtczFmYjZiZWJ0dWhyb3Izcm9xIn0.AygXr2tQ4lj7dlfpPMbyol_otu6XJzC7MQW0T1LtAMmgcTLQLcfThgRknoNvymXiWa6SbhWv1duAcNsV48TAuzGvJrNgTVXAY7f2IWjTZQZFAm8EKQVleuWO8dUQ9khcqnT8zUHqhwfNrgG0sj9m8bKUr2vO8y7u8oaX77a_p1a_CPM5rqwJRvT59y_2ejZHeKN0qj7LahAdjmZXCTvizxfH_SwaOt4UhKDZGc250MVQLUJaMGCCBl-ztl9PmP-uWORRjvE7tCE1Tjlymu8oLyV2-8vd_xYj8djfEivwDKWWu5o8ggm4_49W1IcSLUyYB3Xkneh6PHDIhm_VihfgcQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"loanCode\": \"65e5aa4cfqfdg\"\n}"
+				},
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/bureau-app-layer/v2/bureau/getCibil?async=false&type=Applicant&force=true",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"bureau-app-layer",
+						"v2",
+						"bureau",
+						"getCibil"
+					],
+					"query": [
+						{
+							"key": "async",
+							"value": "false"
+						},
+						{
+							"key": "type",
+							"value": "Applicant"
+						},
+						{
+							"key": "force",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cibil_pull_initiated_Pre_requistic_Scripts",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"  url: \"https://auth.flexiloans.com/oauth2/token\",\r",
+							"  method: 'POST',\r",
+							"  header: {\r",
+							"    'Accept': 'application/json',\r",
+							"    'Content-Type': 'application/x-www-form-urlencoded',\r",
+							"    'Authorization': 'Basic ampzMnEwbXMxZmI2YmVidHVocm9yM3JvcToxMjRoaTAyOHE1bTNuaWk0cnJka3A5dmwzZWo0bnFlbDdwMjlta3Uzc2lrN2RjZDVxMWh0'\r",
+							"  },\r",
+							"  body: {\r",
+							"    mode: 'urlencoded',\r",
+							"    urlencoded: [\r",
+							"      { key: \"grant_type\", value: \"client_credentials\", disabled: false },\r",
+							"      { key: \"scopes\", value: \"*\", disabled: false }\r",
+							"    ]\r",
+							"  }\r",
+							"}, function (err, res) {\r",
+							"  if (err) { return console.log(err); }\r",
+							"  console.log(res.json().access_token);\r",
+							"  pm.environment.set(\"access_token\", res.json().access_token);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "/"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"loanCode\": \"65e5aa4cfqfdg\"\n}"
+				},
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/bureau-app-layer/v2/bureau/getCibil?async=false&type=Applicant&force=true",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"bureau-app-layer",
+						"v2",
+						"bureau",
+						"getCibil"
+					],
+					"query": [
+						{
+							"key": "async",
+							"value": "false"
+						},
+						{
+							"key": "type",
+							"value": "Applicant"
+						},
+						{
+							"key": "force",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Oauth2_Token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scopes",
+							"value": "*",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://auth.flexiloans.com/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"auth",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJySVwvRTAwZmJVKzVCbFBPTTJjRXZRd0U1cHdVK29nbFl4Y2o3YStvVzA4TT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0bGxmODdhcmtkNHQyaTBrdWgxcWRpNTJycyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoicGFydG5lclwvcmVkaXJlY3RsaW5rLnJlYWQgZW1hbmRhdGVcL2JhbmstZWxpZ2liaWxpdHkucmVhZCBsbXNcL3JlcGF5bWVudC53cml0ZSBsZWFkXC9yZWFkIGxvYW5hcHBsaWNhdGlvblwvc3RhdHVzLnJlYWQgbGVhZFwvY3JlYXRlIGxvYW5hcHBsaWNhdGlvblwvYXBwcm92ZS5yZWFkIGMyd1wvaW5pdC5yZWFkIGFnZW5jeVwvb3JkZXIuZmV0Y2ggZW1hbmRhdGVcL3VwZGF0ZSBsb2FuYXBwbGljYXRpb25cL2Rpc2J1cnNlLnJlYWQgbG9hbmFwcGxpY2F0aW9uXC9jaGVja3BvaW50cy5yZWFkIGxtc1wvcmVwYXltZW50LnJlYWQgbG9hbmFwcGxpY2F0aW9uXC9iYW5rQWNjb3VudC53cml0ZSBwYXJ0bmVyXC93cml0ZSBjMndcL2luaXQud3JpdGUgZG9jdW1lbnRcL2RlbGV0ZSBlbWFuZGF0ZVwvY3JlYXRlIHBlbm55ZHJvcFwvY3JlYXRlIGNhbGxiYWNrXC93cml0ZSBkb2N1bWVudFwvY3JlYXRlIGNhbGxiYWNrXC9yZWFkIGxlYWRcL3VwZGF0ZSBsb2FuYXBwbGljYXRpb25cL3BheW91dC5jcmVhdGUgcGFydG5lclwvcmVkaXJlY3Qud3JpdGUgbG1zXC9zZXJ2aWNlLndyaXRlIGMyd1wvZG9jdW1lbnQucmVhZCBsb2FuYXBwbGljYXRpb25cL2RlZHVwZS5yZWFkIHBhcnRuZXJcL3JlZGlyZWN0bGluay53cml0ZSBjMndcL3dyaXRlIGMyd1wvc2lnbi5yZWFkIGRvY3VtZW50XC9yZWFkIHBhcnRuZXJcL21lcmNoYW50T2ZmZXIuY3JlYXRlIGRvY3VtZW50XC9sb29rdXAucmVhZCBsbXNcL3ByZWNsb3N1cmUucmVhZCBiYW5rXC9yZWFkIGxvYW5hcHBsaWNhdGlvblwvbG9hbk9mZmVyLndyaXRlIGVtYW5kYXRlXC9iYW5rLWVsaWdpYmlsaXR5LndyaXRlIGxtc1wvc2VydmljZS5yZWFkIGxlYWRcL2xvYW5hcHBsaWNhdGlvbi5yZWFkIHBhcnRuZXJcL21vY2tkYXRhLmNyZWF0ZSBjMndcL3NpZ24ud3JpdGUgYzJ3XC9yZWFkIGRvY3VtZW50XC91cGRhdGUgbG9hbmFwcGxpY2F0aW9uXC9yZXBheW1lbnQucmVhZCBwYXJ0bmVyXC9yZWFkIHBhcnRuZXJcL3JlZGlyZWN0LnJlYWQgbG1zXC9wcmVjbG9zdXJlLndyaXRlIiwiYXV0aF90aW1lIjoxNjU4NzUxMzg0LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX0NxNlRwQTVGciIsImV4cCI6MTY1ODc1NDk4NCwiaWF0IjoxNjU4NzUxMzg0LCJ2ZXJzaW9uIjoyLCJqdGkiOiI3YmJhNjVkYS1iZjMzLTRkOTQtOTU4YS1kY2IyZjZlMTdkZTkiLCJjbGllbnRfaWQiOiI0bGxmODdhcmtkNHQyaTBrdWgxcWRpNTJycyJ9.Mq8inQprQHmZq8eTtTQHVKlMzDvLa5CLzTsHGJiWuTWEg77_pgBECP078H25Sl_-lH1Mdzdp1jN8ehyp3zZdKtZqH8loOpAimlNmSZHp6w3FHvJWk-XZjTSDS6zEiV-oSo92RLEooWsEZFDtQfZu0xE0rZzG5eJ4kMZlyOkB0q3eUVWjf68njE_HwYEAlsOMPD3TfXqkz2CAG6KOeZlBAIN9KOuQdj85aqa6xQTzWIV5KDzeNzgykiId6NqXY_--UzFv6xnjbALD759JVvds3wA4pXuF0Wz5m_H80N9NH5z9wzyZPFzYfZq3-sA-u9q6vT8DVsmKlsMnC2wF-glcpQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "document_category",
+							"value": "bank_statement",
+							"type": "text"
+						},
+						{
+							"key": "loan_code",
+							"value": "664db34d67nhx",
+							"type": "text"
+						},
+						{
+							"key": "document_type",
+							"value": "bank_statement_current_6",
+							"type": "text"
+						},
+						{
+							"key": "source",
+							"value": "LOS",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/documentservice",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"documentservice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_method",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJDWDlZWUxIMlpKZTVON2hSQmRwQm54UDM4ZHcrdlc1MEsrc2lYWFN5Y3NJPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0bmxyNTJiMnY2djBiZzJ2Z2ZnMmhvZGxodSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiTG9hblByb2R1Y3RcL2NvbGVuZGVyLnNoYXJlIExvYW5Qcm9kdWN0XC9yZWFkIExvYW5Qcm9kdWN0XC9zdGF0dXMucmVhZCBMb2FuUHJvZHVjdFwvdXBkYXRlIExvYW5Qcm9kdWN0XC93cml0ZSBSb2xlc1wvcmVhZCBkb2N1bWVudFwvZG9jdW1lbnQuZG93bmxvYWQgUmVtYXJrc1wvcmVhZCBMb2FuUHJvZHVjdFwvY3JlYXRlIFN0YXR1c1wvc3RhdHVzLmNvbGVuZGVyLnJlYWQgTG9hblByb2R1Y3RcL3N0YXR1cy51cGRhdGUgZG9jdW1lbnRcL2RvY3VtZW50LnJlYWQgU3RhdHVzXC9tYXN0ZXJzdGF0dXMucmVhZCBVc2VyXC9yZWFkIFBlcm1pc3Npb25zXC9yZWFkIGRvY3VtZW50XC9kb2N1bWVudC51cGxvYWQgbWlkZGxld2FyZVwvd3JpdGUgaGVhbHRoY2hlY2tcL3JlYWQgTG9hblByb2R1Y3RcL2NvbGVuZGVyLm1hcCBkb2N1bWVudFwvZG9jdW1lbnQuc2hhcmUgUmVtYXJrc1wvY3JlYXRlIiwiYXV0aF90aW1lIjoxNzE2NDUyOTY2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX2RBdmFDOEwwWSIsImV4cCI6MTcxNjQ1NjU2NiwiaWF0IjoxNzE2NDUyOTY2LCJ2ZXJzaW9uIjoyLCJqdGkiOiIyODI4ZjQ3ZC05MjY2LTQ2ZjgtYjRkNC1hNDBlNmU5N2QyNmEiLCJjbGllbnRfaWQiOiI0bmxyNTJiMnY2djBiZzJ2Z2ZnMmhvZGxodSJ9.V2tYvwaQA1_NGGdefX09QM7ouJi0r02gYN9JCwp7uGv0dnLlnt1x1lx6A2UwjGJBC85QFe57ef8LQTfx0PYDqK8uKgpzW6e1iy-SfkGTMbuob2YHC24beOhVIqzoT-hmfFuZlJ6L1Kd-Q1bgrqAD9nOyzPAWFMgprGYiCrqhM7e8n5GY9g9cofF4Tp413gbtsMBUok6A_qlVFSgCcwrTPHSyTukxgBp577QysNBloalPOfGChB_E5rvKkX5uxCAwIDOtO9ysZff_qIf9ZYKXJIn4O9h7QVKMxyHUTpMCkw5h8VLhokVomfkkc-u0I4wnMxy6OBcbukaShaL9p2cYXA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "console-staging.flexiloans.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "eyJraWQiOiJySVwvRTAwZmJVKzVCbFBPTTJjRXZRd0U1cHdVK29nbFl4Y2o3YStvVzA4TT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0cnJnY3BzcjQ5aXN0bjlzMmEzYnFrMWJoZyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiZG9jdW1lbnRcL2NyZWF0ZSBsZWFkXC91cGRhdGUgcGFydG5lclwvcmVkaXJlY3RsaW5rLnJlYWQgcGFydG5lclwvcmVkaXJlY3Qud3JpdGUgYXBwbGljYXRpb25zdGF0dXNcL2FwcGxpY2F0aW9uc3RhdHVzLndyaXRlIHV0aWxpdHlcL2NvbGxlY3Rpb25iYW5rYWNjb3VudC5nZXQgdXRpbGl0eVwvY2hhbGxlbmdlcm1vZGVsLndyaXRlIGxlYWRcL3JlYWQgbGVhZFwvY3JlYXRlIGV2ZW50aWZ5XC9zdWJzY3JpYmUud3JpdGUgYXBwbGljYXRpb25zdGF0dXNcL2FwcGxpY2F0aW9uc3RhdHVzLnJlYWQgdXRpbGl0eVwvZ2V0IHBhcnRuZXJcL3JlZGlyZWN0bGluay53cml0ZSB1dGlsaXR5XC9jaGFsbGVuZ2VybW9kZWwucmVhZCBkb2N1bWVudFwvcmVhZCB1dGlsaXR5XC9leHBlcmltZW50TG9nLmNyZWF0ZSBkb2N1bWVudFwvbG9va3VwLnJlYWQgdXRpbGl0eVwvcmVhZCBsZWFkXC9sb2FuYXBwbGljYXRpb25zLmhpc3RvcnkgZG9jdW1lbnRcL2Rvd25sb2FkLnJlYWQgZXZlbnRpZnlcL2NvbmZpZy53cml0ZSBsbXNcL3NlcnZpY2UucmVhZCBsb2FuYXBwbGljYXRpb25cL2xvYW5maW5hbmNlLnJlYWQgbGVhZFwvbG9hbmFwcGxpY2F0aW9uLnJlYWQgY29yZWFwcHBsaWNhdGlvbmxheWVyXC93cml0ZSBkb2N1bWVudFwvZGVsZXRlIGxtc1wvbG1zLnJlYWQgdXRpbGl0eVwvYWN0aXZpdHkuY3JlYXRlIHBlcnNvbmFsZGlzY3Vzc2lvblwvcmVhZCBkb2N1bWVudFwvdXBkYXRlIHV0aWxpdHlcL3dyaXRlIHV0aWxpdHlcL3BlcmZvcm1hbmNldHlwZS5yZWFkIHBhcnRuZXJcL3JlYWQgcGFydG5lclwvcmVkaXJlY3QucmVhZCIsImF1dGhfdGltZSI6MTcxMDM5NTk5NywiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV9DcTZUcEE1RnIiLCJleHAiOjE3MTAzOTk1OTcsImlhdCI6MTcxMDM5NTk5NywidmVyc2lvbiI6MiwianRpIjoiYjM5Y2FiZGUtMTJiYS00MzJlLWJlYTYtMmNhYjk1ODI5N2Y5IiwiY2xpZW50X2lkIjoiNHJyZ2Nwc3I0OWlzdG45czJhM2JxazFiaGcifQ.F_ObnmTAW6NOwKXoMHyGVJSOLLviEJGeX69nALWqM6ThD1ENm6OwwStTBTGp_zp7quIjfK1nd7SLp6UgBAqUr8BFO-eWKOXHcCp4DCj0dQAzBkDki-OVVIBwimHGNXqCJksaHPUh_Vy9YjoU91Ydp7UjA-rACPOKu_8I9X7F9U2oaj4jZ5bVvlVwp4h23gYp3QCqV-bLO5pjYZtlcLHqcR8jG9iCZsKV2XGC38ZXnkHHeofQjv53wy4-xS00o_gzYb3GIJgSB2sWx_5-DMIoSMIJjKyxmmqvoQHGiCic8zifQ-pVnMQNVKa4ZCJCOSxOcLr_2gjFcWJ16JmgWI_EMg",
+						"disabled": true
+					},
+					{
+						"key": "origin",
+						"value": "https://leads-staging.flexiloans.com"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Google Chrome\";v=\"122\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/personaldiscussion/pd-details/64991e707hvzs",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"personaldiscussion",
+						"pd-details",
+						"64991e707hvzs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_method1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"  url: \"https://heimdalldev.flexiloans.com/oauth2/token\",\r",
+							"  method: 'POST',\r",
+							"  header: {\r",
+							"    'Accept': 'application/json',\r",
+							"    'Content-Type': 'application/x-www-form-urlencoded',\r",
+							"    'Authorization': \"Basic NG5scjUyYjJ2NnYwYmcydmdmZzJob2RsaHU6MTBlNW9yZDUwZW9nam1xNG4xNDhram41c292NDNuZXQ4OWtpaDM4cGh0dXJmOGh1MHBmZA==\"\r",
+							"  },\r",
+							"  body: {\r",
+							"    mode: 'urlencoded',\r",
+							"    urlencoded: [\r",
+							"      { key: \"grant_type\", value: \"client_credentials\", disabled: false },\r",
+							"      { key: \"scopes\", value: \"*\", disabled: false }\r",
+							"    ]\r",
+							"  }\r",
+							"}, function (err, res) {\r",
+							"  if (err) { return console.log(err); }\r",
+							"  pm.environment.set(\"access_token\", res.json().access_token);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJraWQiOiJySVwvRTAwZmJVKzVCbFBPTTJjRXZRd0U1cHdVK29nbFl4Y2o3YStvVzA4TT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJqanMycTBtczFmYjZiZWJ0dWhyb3Izcm9xIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJidXJlYXVhcHBsaWNhdGlvbmxheWVyXC9yZWFkIGJ1cmVhdWFwcGxpY2F0aW9ubGF5ZXJcL3dyaXRlIiwiYXV0aF90aW1lIjoxNzE2MzYzNzUwLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX0NxNlRwQTVGciIsImV4cCI6MTcxNjM2NzM1MCwiaWF0IjoxNzE2MzYzNzUwLCJ2ZXJzaW9uIjoyLCJqdGkiOiJkY2IxNjgzOS1jMzRmLTRmNzItYTcwZi03NDM3YjI3YzA4OTMiLCJjbGllbnRfaWQiOiJqanMycTBtczFmYjZiZWJ0dWhyb3Izcm9xIn0.f-crtlKaX6RVY50LcDuyhMtw8Pspp_mx7edl50lmFClegONe9z-H7WM9weqsyXvOKFnfNhWQO17JT9JgZiYQAVMkqnDohtRojKAbLFhcNbFbPB_IfbfbLv48Oo1seGvk8MJ9eZ2W9XJRd8nqxXAx-Q-W60OjsHLczpEOAt229xqlhlfFlkwLnGLqZelunXM38Z6TgPHfDFakmNTVZVwxUOxtyZDr1eP6H4fUwGkpdlyqxTGDCJ4wL7qPBhodIxuZq6TWLXmKHlkHzHytwn9N_QiA-g4NCewybu708YkjAXoyZtspzaW7C-XNx_uG5EwR4QP_le9SgJwAEBayspXMxA"
+					}
+				],
+				"url": {
+					"raw": "https://bifrost-dev.flexiloans.com/v1/lead/originator/65dc2c518eubz?colender_id=11",
+					"protocol": "https",
+					"host": [
+						"bifrost-dev",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"v1",
+						"lead",
+						"originator",
+						"65dc2c518eubz"
+					],
+					"query": [
+						{
+							"key": "colender_id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token_Request_update",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"  url: \"https://heimdalldev.flexiloans.com/oauth2/token\",\r",
+							"  method: 'POST',\r",
+							"  header: {\r",
+							"    'Accept': 'application/json',\r",
+							"    'Content-Type': 'application/x-www-form-urlencoded',\r",
+							"    'Authorization': \"Basic NG5scjUyYjJ2NnYwYmcydmdmZzJob2RsaHU6MTBlNW9yZDUwZW9nam1xNG4xNDhram41c292NDNuZXQ4OWtpaDM4cGh0dXJmOGh1MHBmZA==\"\r",
+							"  },\r",
+							"  body: {\r",
+							"    mode: 'urlencoded',\r",
+							"    urlencoded: [\r",
+							"      { key: \"grant_type\", value: \"client_credentials\", disabled: false },\r",
+							"      { key: \"scopes\", value: \"*\", disabled: false }\r",
+							"    ]\r",
+							"  }\r",
+							"}, function (err, res) {\r",
+							"  if (err) { return console.log(err); }\r",
+							"//   pm.globals.set(\"access_token\", res.json().access_token);\r",
+							"  console.log(res.json().access_token)\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/personaldiscussion/pd-details/64991e707hvzs",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"personaldiscussion",
+						"pd-details",
+						"64991e707hvzs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eligibility_",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"  url: \"https://auth.flexiloans.com/oauth2/token\",\r",
+							"  method: 'POST',\r",
+							"  header: {\r",
+							"    'Accept': 'application/json',\r",
+							"    'Content-Type': 'application/x-www-form-urlencoded',\r",
+							"    'Authorization': 'Basic ampzMnEwbXMxZmI2YmVidHVocm9yM3JvcToxMjRoaTAyOHE1bTNuaWk0cnJka3A5dmwzZWo0bnFlbDdwMjlta3Uzc2lrN2RjZDVxMWh0'\r",
+							"  },\r",
+							"  body: {\r",
+							"    mode: 'urlencoded',\r",
+							"    urlencoded: [\r",
+							"      { key: \"grant_type\", value: \"client_credentials\", disabled: false },\r",
+							"      { key: \"scopes\", value: \"*\", disabled: false }\r",
+							"    ]\r",
+							"  }\r",
+							"}, function (err, res) {\r",
+							"  if (err) { return console.log(err); }\r",
+							"  console.log(res.json().access_token);\r",
+							"  pm.environment.set(\"access_token\", res.json().access_token);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/eligibility/v2/6650af4au1w58",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"eligibility",
+						"v2",
+						"6650af4au1w58"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Repayment-details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loan_code\":\"5b77d5f7c5d28\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/lms/repayment-details/000045730",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"lms",
+						"repayment-details",
+						"000045730"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eligibility_Post_Method",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"loan_code\":\"58d915464fe72\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/eligibility/v2/",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"eligibility",
+						"v2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eligible_Check",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"loan_code\" : \"6650b61ao5739\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/eligibility/v2",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"eligibility",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pd_details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "console-staging.flexiloans.com"
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-GB,en-US;q=0.9,en;q=0.8"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer {{access_token}}"
+					},
+					{
+						"key": "origin",
+						"value": "https://leads-staging.flexiloans.com",
+						"disabled": true
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"122\", \"Not(A:Brand\";v=\"24\", \"Google Chrome\";v=\"122\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://console-staging.flexiloans.com/personaldiscussion/pd-details/6659ca92b51yl",
+					"protocol": "https",
+					"host": [
+						"console-staging",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"personaldiscussion",
+						"pd-details",
+						"6659ca92b51yl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lead_originator",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"  url: \"https://heimdalldev.flexiloans.com/oauth2/token\",\r",
+							"  method: 'POST',\r",
+							"  header: {\r",
+							"    'Accept': 'application/json',\r",
+							"    'Content-Type': 'application/x-www-form-urlencoded',\r",
+							"    'Authorization': \"Basic NG5scjUyYjJ2NnYwYmcydmdmZzJob2RsaHU6MTBlNW9yZDUwZW9nam1xNG4xNDhram41c292NDNuZXQ4OWtpaDM4cGh0dXJmOGh1MHBmZA==\"\r",
+							"  },\r",
+							"  body: {\r",
+							"    mode: 'urlencoded',\r",
+							"    urlencoded: [\r",
+							"      { key: \"grant_type\", value: \"client_credentials\", disabled: false },\r",
+							"      { key: \"scopes\", value: \"*\", disabled: false }\r",
+							"    ]\r",
+							"  }\r",
+							"}, function (err, res) {\r",
+							"  if (err) { return console.log(err); }\r",
+							"  pm.environment.set(\"access_token2\", res.json().access_token);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer"
+					}
+				],
+				"url": {
+					"raw": "https://bifrost-dev.flexiloans.com/v1/lead/originator/625ec62b43kb5?colender_id=7",
+					"protocol": "https",
+					"host": [
+						"bifrost-dev",
+						"flexiloans",
+						"com"
+					],
+					"path": [
+						"v1",
+						"lead",
+						"originator",
+						"625ec62b43kb5"
+					],
+					"query": [
+						{
+							"key": "colender_id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "inherit"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.sendRequest({\r",
+					"  url: \"https://auth.flexiloans.com/oauth2/token\",\r",
+					"  method: 'POST',\r",
+					"  header: {\r",
+					"    'Accept': 'application/json',\r",
+					"    'Content-Type': 'application/x-www-form-urlencoded',\r",
+					"    'Authorization': 'Basic ampzMnEwbXMxZmI2YmVidHVocm9yM3JvcToxMjRoaTAyOHE1bTNuaWk0cnJka3A5dmwzZWo0bnFlbDdwMjlta3Uzc2lrN2RjZDVxMWh0'\r",
+					"  },\r",
+					"  body: {\r",
+					"    mode: 'urlencoded',\r",
+					"    urlencoded: [\r",
+					"      { key: \"grant_type\", value: \"client_credentials\", disabled: false },\r",
+					"      { key: \"scopes\", value: \"*\", disabled: false }\r",
+					"    ]\r",
+					"  }\r",
+					"}, function (err, res) {\r",
+					"  if (err) { return console.log(err); }\r",
+					"  console.log(res.json().access_token);\r",
+					"  pm.environment.set(\"access_token\", res.json().access_token);\r",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
